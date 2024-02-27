@@ -3,19 +3,36 @@ package com.edu.account;
 public class Transaction extends Loan {
     private int amount;
    
-    public boolean depositAmount() {
-    	return true;
+    
+    public Transaction(Account ac,Loan ln,Integer amt) {
+    	super(ac,ln);
+    	if(amt<=0) return;
+    	amount = amt;
+    }
+    
+    public void depositAmount(int amount) {
+    	depositAmount += amount;
+    	System.out.println("New Balance : "+depositAmount);
     }
 
-    public int withdrawAmount() {
-         return 0;
+    public void withdrawAmount(int amount) {
+    	 if(amount > depositAmount) {
+    		 System.out.println("amount limit exceeds");
+    		 return;
+    	 }
+    	 depositAmount -= amount;
+         System.out.println("remaining balance : "+depositAmount);
     }
 
-    public int payLoan() {
-       return 0;
+    public void payLoan(int amount) {
+       
+       
+       loanAmount = amount;
+       System.out.println("Remaining Loan Amount: "+loanAmount);
+
     }
 
-    public String showAccountDetails() {
-        return getDetails();
+    public void showAccountDetails() {
+    	showLoanDetails();
     }
 }

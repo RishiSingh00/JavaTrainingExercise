@@ -1,11 +1,15 @@
 package com.edu.account;
 
 public class Loan extends Account {
-    private String loanId, loanType;
-    private int loanAmount;
+    protected String loanId, loanType;
+    protected Integer loanAmount;
 
-    public Loan(String id, String name, String addr, int amount, String loanId, String loanType, int loanAmount) {
-        super(id, name, addr, amount);
+    public Loan(Account ac,Loan ln) {
+    	super(ac);
+    	loanId = ln.loanId; loanType = ln.loanType; loanAmount = ln.loanAmount;
+    }
+    public Loan(Account ac,String loanId, String loanType, Integer loanAmount) {
+        super(ac);
         if (!isValidLoanType(loanType)) {
             throw new IllegalArgumentException("Invalid loan type");
         }
@@ -14,6 +18,7 @@ public class Loan extends Account {
         this.loanAmount = loanAmount;
     }
 
+    
     public static boolean isValidLoanType(String loanType) {
         return loanType.equals("car") || loanType.equals("home");
     }
@@ -22,7 +27,7 @@ public class Loan extends Account {
         loanAmount += getAmount;
     }
 
-    public String showLoanDetails() {
-        return getDetails() + "\n" + "Loan ID: " + loanId + "\nLoan Type: " + loanType + "\nLoan Amount: " + loanAmount;
+    public void showLoanDetails() {
+        System.out.println(getDetails() + "\n" + "Loan ID: " + loanId + "\nLoan Type: " + loanType + "\nLoan Amount: " + loanAmount);
     }
 }

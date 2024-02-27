@@ -1,10 +1,13 @@
 package com.edu.account;
 
 public class Account {
-	private String accountId, accountName, address;
-	private int depositAmount;
+	protected String accountId, accountName, address;
+	protected Integer depositAmount;
 	
-	public Account(String id, String name, String addr, int amount) {
+	public Account(Account ac) {
+		accountId = ac.accountId; accountName = ac.accountName; address = ac.address; depositAmount = ac.depositAmount;
+	}
+	public Account(String id, String name, String addr, Integer amount) {
 		
 		//check whether id is valid or not
 		if(!isValidID(id)) throw new IllegalArgumentException("Invalid ID Format");
