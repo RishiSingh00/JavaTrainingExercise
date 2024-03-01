@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="set" class="com.edu.spring.ConstSetExample">
+		<property name="setName" value="Fruits" />
+		<!-- <constructor-arg value="Fruits"></constructor-arg> 
+			<constructor-arg> 
+				<set> 
+					<value>Apple</value> 
+					<value>Banana</value> 
+					<value>Cherry</value> 
+				</set> 
+			</constructor-arg> 
+		-->
+		
+		<property name="userSet">
+			<set>
+				<value>Apple</value>
+				<value>Banana</value>
+				<value>Cherry</value>
+				<value>Apple</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="map" class="com.edu.spring.ConstMapExample">
+		<property name="className" value="Tenth" />
+		<property name="rollNo">
+			<map>
+				<entry key="1" value="Ramesh" />
+				<entry key="2" value="Suresh" />
+				<entry key="3" value="Mahesh" />
+			</map>
+		</property>
+		<!-- 
+		<constructor-arg value="Tenth" />
+    	<constructor-arg>
+        	<map>
+            	<entry key="1" value="Ramesh" />
+            	<entry key="2" value="Suresh" />
+            	<entry key="3" value="Mahesh" />
+        	</map>
+    	</constructor-arg>
+		 -->
+	</bean>
+
+</beans>
